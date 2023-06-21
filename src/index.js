@@ -129,12 +129,12 @@ FROM BusAccessTable`, (err, rows) => {
           payment_method_id, qr_version, subtotal, ticket_id, user_category, total, user_id, user_profile, user_title)
          SELECT access_date, balance_new, balance_old, creation_date, device_id, discount_amount, discount_concept,
          latitude, longitude, passengers, payment_company, payment_company_id, payment_method,
-         payment_method_id, qr_version, subtotal, ticket_id, user_category, total, user_id, user_profile, user_title
+         payment_method_id, qr_version, subtotal, ticket_id, user_category, total, user_id, user_profile, user_title, no_bank, bank, no_bank_flag
          FROM jsonb_to_recordset($1::jsonb) AS t (access_date timestamp, balance_new int, balance_old int, creation_date bigint, device_id int,
             discount_amount int, discount_concept text, latitude float, longitude float,
             passengers int, payment_company int, payment_company_id int, payment_method int,
             payment_method_id text, qr_version int, subtotal float, ticket_id int,
-            user_category text, total float, user_id text, user_profile text, user_title text)`,
+            user_category text, total float, user_id text, user_profile text, user_title text, no_bank int, bank int, no_bank_flag int)`,
         [
             JSON.stringify(values),
         ], (err, res) => {
