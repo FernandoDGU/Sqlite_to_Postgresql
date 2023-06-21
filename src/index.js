@@ -56,11 +56,6 @@ FROM BusAccessTable`, (err, rows) => {
       row.payment_method = 2
     }
 
-    if(row.device_id == 'DDnrdK4iyl4D4fPfsl') {
-      row.device_id = 241
-    }
-
-
     values.push(({
       access_date: row.access_date, 
       balance_new: row.balance_new,
